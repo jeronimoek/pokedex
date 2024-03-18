@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { Loading } from "~/components/Loading";
 import { PokemonEvolution } from "~/components/PokemonEvolution";
 import { Types } from "~/components/Types";
 import { capitalize } from "~/tools/capitalize";
@@ -20,7 +21,7 @@ export default function Pokemon({
     api.pokemon.pokemon.useQuery({ id: parseInt(pokemonId) });
 
   return loadingPokemon ? (
-    "Loading..."
+    <Loading />
   ) : !pokemon ? (
     "ERROR"
   ) : (

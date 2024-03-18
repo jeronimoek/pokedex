@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useMemo } from "react";
+import { Loading } from "~/components/Loading";
 import PokemonCard from "~/components/PokemonCard";
 import { capitalize } from "~/tools/capitalize";
 import { pokemonTypeColors } from "~/tools/pokemonTypeColors";
@@ -141,7 +142,7 @@ function Home() {
       loadingEvolutionChains ||
       loadingGenerations ||
       loadingTypes ? (
-        "Loading..."
+        <Loading />
       ) : (
         <div className="grid w-full grid-cols-2 gap-4 px-2 py-2 md:grid-cols-4 xl:grid-cols-6">
           {pokemonsFiltered?.map(({ id, name, generation, types, image }) => (
