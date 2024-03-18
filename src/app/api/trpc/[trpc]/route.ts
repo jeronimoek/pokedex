@@ -21,11 +21,12 @@ const handler = (req: NextRequest) =>
     req,
     router: appRouter,
     createContext: () => createContext(req),
+    responseMeta: () => ({ headers: { "s-maxage": "31536000" } }),
     onError:
       env.NODE_ENV === "development"
         ? ({ path, error }) => {
             console.error(
-              `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`
+              `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`,
             );
           }
         : undefined,
