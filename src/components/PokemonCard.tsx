@@ -1,7 +1,6 @@
 import { useRouter } from "next/navigation";
 import { capitalize } from "~/tools/capitalize";
 import { generationTranslate } from "~/tools/generationTranslate";
-import { pokemonTypeColors } from "~/tools/pokemonTypeColors";
 import { Types } from "./Types";
 
 interface PokemonCardProps {
