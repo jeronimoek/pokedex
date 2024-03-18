@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { PokemonEvolution } from "~/components/PokemonEvolution";
 import { Types } from "~/components/Types";
 import { capitalize } from "~/tools/capitalize";
@@ -13,6 +14,8 @@ export default function Pokemon({
 }: {
   params: { pokemonId: string };
 }) {
+  const router = useRouter();
+
   const { data: pokemon, isLoading: loadingPokemon } =
     api.pokemon.pokemon.useQuery({ id: parseInt(pokemonId) });
 
@@ -22,6 +25,9 @@ export default function Pokemon({
     "ERROR"
   ) : (
     <div className="flex flex-col items-center justify-center overflow-hidden p-2">
+      <button className="self-start" onClick={() => router.back()}>
+        ← Go Back
+      </button>
       <div className="mb-12 flex w-full flex-col items-center justify-center gap-12 sm:w-3/4 sm:flex-row">
         <div className="flex w-full flex-col gap-2 rounded bg-gray-800 p-4 text-center sm:max-w-96">
           <div>
