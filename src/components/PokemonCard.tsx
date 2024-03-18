@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 import { capitalize } from "~/tools/capitalize";
 import { generationTranslate } from "~/tools/generationTranslate";
 import { Types } from "./Types";
+import { imageNotFound } from "~/tools/constants";
 
 interface PokemonCardProps {
   id: number;
@@ -10,8 +11,6 @@ interface PokemonCardProps {
   types: string[];
   image?: string;
 }
-
-const imageNotFound = "https://m.media-amazon.com/images/I/71WkWKFRSWL.png";
 
 export default function PokemonCard({
   id,

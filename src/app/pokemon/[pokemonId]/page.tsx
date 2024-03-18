@@ -5,10 +5,9 @@ import { Loading } from "~/components/Loading";
 import { PokemonEvolution } from "~/components/PokemonEvolution";
 import { Types } from "~/components/Types";
 import { capitalize } from "~/tools/capitalize";
+import { imageNotFound } from "~/tools/constants";
 import { generationTranslate } from "~/tools/generationTranslate";
 import { api } from "~/trpc/react";
-
-const imageNotFound = "https://m.media-amazon.com/images/I/71WkWKFRSWL.png";
 
 export default function Pokemon({
   params: { pokemonId },
